@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
 import { Switch } from "./ui/switch";
 import { Badge } from "./ui/badge";
 import { Alert, AlertDescription } from "./ui/alert";
@@ -94,8 +93,8 @@ export function NotificationCenter() {
   return (
     <div className="p-8 space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold text-gray-900 mb-2">Notification Center</h1>
-        <p className="text-gray-600">Manage alerts, notifications, and emergency broadcasting systems.</p>
+        <h1 className="text-2xl font-semibold text-foreground mb-2">Notification Center</h1>
+        <p className="text-muted-foreground">Manage alerts, notifications, and emergency broadcasting systems.</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
@@ -114,7 +113,7 @@ export function NotificationCenter() {
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-sm font-medium">Safety Alerts</span>
-                <p className="text-xs text-gray-600">Zone warnings, hazard alerts</p>
+                <p className="text-xs text-muted-foreground">Zone warnings, hazard alerts</p>
               </div>
               <Switch
                 checked={safetyAlerts}
@@ -125,7 +124,7 @@ export function NotificationCenter() {
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-sm font-medium">Weather & Environment</span>
-                <p className="text-xs text-gray-600">Weather, air quality, disasters</p>
+                <p className="text-xs text-muted-foreground">Weather, air quality, disasters</p>
               </div>
               <Switch
                 checked={weatherAlerts}
@@ -136,7 +135,7 @@ export function NotificationCenter() {
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-sm font-medium">Group Notifications</span>
-                <p className="text-xs text-gray-600">Group member updates, check-ins</p>
+                <p className="text-xs text-muted-foreground">Group member updates, check-ins</p>
               </div>
               <Switch
                 checked={groupNotifications}
@@ -147,7 +146,7 @@ export function NotificationCenter() {
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-sm font-medium">FM Emergency Broadcast</span>
-                <p className="text-xs text-gray-600">Auto-tune to 107.8 MHz for alerts</p>
+                <p className="text-xs text-muted-foreground">Auto-tune to 107.8 MHz for alerts</p>
               </div>
               <Switch
                 checked={fmBroadcast}
@@ -158,7 +157,7 @@ export function NotificationCenter() {
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-sm font-medium">Battery Saver Mode</span>
-                <p className="text-xs text-gray-600">Reduce notification frequency</p>
+                <p className="text-xs text-muted-foreground">Reduce notification frequency</p>
               </div>
               <Switch
                 checked={batteryOptimization}
@@ -240,7 +239,7 @@ export function NotificationCenter() {
             {recentAlerts.map((alert) => {
               const Icon = alert.icon;
               return (
-                <div key={alert.id} className="flex items-start space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <div key={alert.id} className="flex items-start space-x-3 p-3 border border-border rounded-lg hover:bg-accent">
                   <div className={`w-8 h-8 bg-${alert.color}-100 rounded-full flex items-center justify-center flex-shrink-0`}>
                     <Icon className={`w-4 h-4 text-${alert.color}-600`} />
                   </div>
@@ -254,10 +253,10 @@ export function NotificationCenter() {
                         >
                           {alert.priority}
                         </Badge>
-                        <span className="text-xs text-gray-500">{alert.time}</span>
+                        <span className="text-xs text-muted-foreground">{alert.time}</span>
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600">{alert.message}</p>
+                    <p className="text-sm text-muted-foreground">{alert.message}</p>
                   </div>
                 </div>
               );
@@ -280,9 +279,9 @@ export function NotificationCenter() {
         <CardContent>
           <div className="grid md:grid-cols-3 gap-4">
             {activeAlerts.map((alert, index) => (
-              <div key={index} className="p-4 border border-gray-200 rounded-lg">
+              <div key={index} className="p-4 border border-border rounded-lg">
                 <h4 className="font-semibold mb-2">{alert.title}</h4>
-                <p className="text-sm text-gray-600 mb-2">{alert.description}</p>
+                <p className="text-sm text-muted-foreground mb-2">{alert.description}</p>
                 <Badge variant="outline" className="text-xs">
                   {alert.type}
                 </Badge>
@@ -306,10 +305,10 @@ export function NotificationCenter() {
         <CardContent>
           <div className="grid md:grid-cols-4 gap-4">
             {environmentalConditions.map((condition, index) => (
-              <div key={index} className="p-4 border border-gray-200 rounded-lg text-center">
+              <div key={index} className="p-4 border border-border rounded-lg text-center">
                 <div className="text-2xl mb-2">{condition.icon}</div>
                 <h4 className="font-semibold text-sm mb-1">{condition.name}</h4>
-                <p className="text-sm text-gray-600 mb-2">{condition.value}</p>
+                <p className="text-sm text-muted-foreground mb-2">{condition.value}</p>
                 <Badge 
                   variant={condition.status === 'good' ? 'default' : condition.status === 'warning' ? 'secondary' : 'destructive'}
                   className="text-xs"

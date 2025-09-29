@@ -33,8 +33,8 @@ export function SafetyMonitoring() {
   return (
     <div className="p-8 space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold text-gray-900 mb-2">Safety Monitoring Center</h1>
-        <p className="text-gray-600">Real-time safety monitoring and emergency response system.</p>
+        <h1 className="text-2xl font-semibold text-foreground mb-2">Safety Monitoring Center</h1>
+        <p className="text-muted-foreground">Real-time safety monitoring and emergency response system.</p>
       </div>
 
       {/* Panic Button - Prominent */}
@@ -107,14 +107,14 @@ export function SafetyMonitoring() {
             <div className="space-y-2">
               <h4 className="font-semibold text-sm">Nearby Risk Zones</h4>
               {riskZones.map((zone, index) => (
-                <div key={index} className="p-3 border border-gray-200 rounded-lg">
+                <div key={index} className="p-3 border border-border rounded-lg">
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-medium text-sm">{zone.name}</span>
                     <Badge variant={zone.level === "High" ? "destructive" : "secondary"}>
                       {zone.level} Risk
                     </Badge>
                   </div>
-                  <p className="text-xs text-gray-600">{zone.distance} away</p>
+                  <p className="text-xs text-muted-foreground">{zone.distance} away</p>
                   <p className="text-xs text-orange-600">{zone.warning}</p>
                 </div>
               ))}
@@ -138,13 +138,13 @@ export function SafetyMonitoring() {
               {environmentalAlerts.map((alert, index) => {
                 const Icon = alert.icon;
                 return (
-                  <div key={index} className="p-3 border border-gray-200 rounded-lg">
+                  <div key={index} className="p-3 border border-border rounded-lg">
                     <div className="flex items-center space-x-2 mb-2">
                       <Icon className={`w-4 h-4 text-${alert.color}-600`} />
                       <span className="text-sm font-medium">{alert.type}</span>
                     </div>
                     <p className={`text-xs text-${alert.color}-600 font-medium`}>{alert.status}</p>
-                    <p className="text-xs text-gray-600">{alert.value}</p>
+                    <p className="text-xs text-muted-foreground">{alert.value}</p>
                   </div>
                 );
               })}

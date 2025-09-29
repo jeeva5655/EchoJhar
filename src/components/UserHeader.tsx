@@ -35,8 +35,8 @@ export function UserHeader({ userType, userData, onLogout }: UserHeaderProps) {
             </Avatar>
             
             <div>
-              <h2 className="font-semibold text-gray-900">{userData?.name || 'User'}</h2>
-              <div className="flex items-center space-x-3 text-sm text-gray-600">
+              <h2 className="font-semibold text-foreground">{userData?.name || 'User'}</h2>
+              <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                 <span className="flex items-center space-x-1">
                   {userType === 'admin' ? <Shield className="w-3 h-3" /> : <User className="w-3 h-3" />}
                   <span>{userType === 'admin' ? `Badge: ${userData?.id}` : userType === 'business' ? `Reg: ${userData?.registrationId || userData?.id}` : `Tourist ID: ${userData?.id}`}</span>
@@ -58,20 +58,20 @@ export function UserHeader({ userType, userData, onLogout }: UserHeaderProps) {
           </Badge>
           
           {userType === 'admin' && (
-            <div className="text-right text-xs text-gray-600">
+            <div className="text-right text-xs text-muted-foreground">
               <div>{userData?.department}</div>
               <div>Clearance: {userData?.clearanceLevel}</div>
             </div>
           )}
 
           {userType === 'tourist' && userData?.digitalIdVerified && (
-            <div className="text-right text-xs text-gray-600">
+            <div className="text-right text-xs text-muted-foreground">
               <div className="text-green-600">✅ ID Verified</div>
               <div>{userData?.nationality}</div>
             </div>
           )}
           {userType === 'business' && (
-            <div className="text-right text-xs text-gray-600">
+            <div className="text-right text-xs text-muted-foreground">
               <div className="text-green-600">✅ Vendor Verified</div>
               <div>{userData?.sector || 'Tourism'}</div>
             </div>

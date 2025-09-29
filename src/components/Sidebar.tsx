@@ -88,8 +88,8 @@ export function Sidebar({ activeSection, onSectionChange, userType, userData, on
   const menuItems = userType === 'admin' ? adminMenuItems : userType === 'business' ? businessMenuItems : touristMenuItems;
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 min-h-screen flex flex-col">
-      <div className="p-6 border-b border-gray-200">
+    <div className="w-64 bg-card text-card-foreground border-r border-border min-h-screen flex flex-col">
+      <div className="p-6 border-b border-border">
         <div className="mb-3">
           <img 
             src={echoJharLogo}
@@ -97,7 +97,7 @@ export function Sidebar({ activeSection, onSectionChange, userType, userData, on
             className="h-16 w-auto"
           />
         </div>
-        <p className="text-sm text-gray-600">Jharkhand Tourism Platform</p>
+  <p className="text-sm text-muted-foreground">Jharkhand Tourism Platform</p>
         <div className="mt-3">
           <Badge variant={userType === 'admin' ? 'destructive' : 'default'} className="text-xs">
             {userType === 'admin' ? '🛡️ Admin Access' : userType === 'business' ? '� Business Access' : '�🌟 Tourist Access'}
@@ -120,13 +120,13 @@ export function Sidebar({ activeSection, onSectionChange, userType, userData, on
                       ? userType === 'admin' 
                         ? "bg-red-50 text-red-700 border border-red-200"
                         : "bg-blue-50 text-blue-700 border border-blue-200"
-                      : "text-gray-700 hover:bg-gray-50"
+                      : "text-muted-foreground hover:bg-accent"
                   }`}
                 >
                   <Icon className={`w-5 h-5 ${
                     isActive 
                       ? userType === 'admin' ? "text-red-600" : "text-blue-600"
-                      : "text-gray-400"
+                      : "text-muted-foreground"
                   }`} />
                   <span className="font-medium">{item.label}</span>
                 </button>
@@ -136,7 +136,7 @@ export function Sidebar({ activeSection, onSectionChange, userType, userData, on
         </ul>
       </nav>
       
-      <div className="p-4 border-t border-gray-200">
+      <div className="p-4 border-t border-border">
         <div className="flex items-center space-x-3 mb-3">
           <Avatar className="w-8 h-8">
             <AvatarImage src={userType === 'admin' ? "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" : "https://images.unsplash.com/photo-1494790108755-2616c7e7e9de?w=150"} />
@@ -145,10 +145,10 @@ export function Sidebar({ activeSection, onSectionChange, userType, userData, on
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-900 truncate">
+            <p className="text-sm font-medium text-foreground truncate">
               {userData?.name || 'User'}
             </p>
-            <p className="text-xs text-gray-500 truncate">
+            <p className="text-xs text-muted-foreground truncate">
               {userType === 'admin' 
                 ? `Badge: ${userData?.id}` 
                 : userType === 'business' ? `Reg: ${userData?.registrationId || userData?.id}` : `ID: ${userData?.id}`}

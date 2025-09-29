@@ -85,10 +85,10 @@ export class MapErrorBoundary extends React.Component<MapErrorBoundaryProps, Map
             </AlertDescription>
           </Alert>
           
-          <div className="bg-white rounded-lg border border-gray-200 p-8 text-center">
-            <MapPin className="w-16 h-16 mx-auto text-gray-400 mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Map Service Active</h3>
-            <p className="text-gray-600">
+          <div className="bg-card text-card-foreground rounded-lg border border-border p-8 text-center">
+            <MapPin className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
+            <h3 className="text-lg font-semibold mb-2">Map Service Active</h3>
+            <p className="text-muted-foreground">
               Using default location data for demonstration purposes.
             </p>
           </div>
