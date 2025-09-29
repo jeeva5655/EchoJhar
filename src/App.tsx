@@ -173,7 +173,7 @@ export default function App() {
             {userType === "tourist" ? (
               <div className="grid md:grid-cols-3 gap-6">
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow group"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow group"
                   onClick={() => setActiveSection("experience-hub")}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
@@ -198,7 +198,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow group"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow group"
                   onClick={() => setActiveSection("itinerary-planner")}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
@@ -223,7 +223,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow group"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow group"
                   onClick={() => setActiveSection("marketplace")}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center mb-4">
@@ -248,7 +248,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow group"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow group"
                   onClick={() => setActiveSection("cultural-immersion")}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
@@ -273,7 +273,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow group"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow group"
                   onClick={() => setActiveSection("travel-essentials")}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
@@ -298,7 +298,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveSection("profile")}
                 >
                   <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
@@ -314,7 +314,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() =>
                     setActiveSection("safety-monitoring")
                   }
@@ -332,7 +332,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() =>
                     setActiveSection("group-tracking")
                   }
@@ -350,7 +350,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveSection("geo-map")}
                 >
                   <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
@@ -366,7 +366,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow group"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow group"
                   onClick={() => setActiveSection("enhanced-ai-assistant")}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mb-4">
@@ -391,7 +391,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow group"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow group"
                   onClick={() => setActiveSection("ar-vr-experience")}
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-4">
@@ -418,7 +418,7 @@ export default function App() {
             ) : userType === "admin" ? (
               <div className="grid md:grid-cols-3 gap-6">
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveSection("enhanced-ai-assistant")}
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
@@ -433,7 +433,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() =>
                     setActiveSection("safety-monitoring")
                   }
@@ -451,7 +451,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() =>
                     setActiveSection("group-tracking")
                   }
@@ -469,7 +469,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() =>
                     setActiveSection("emergency-services")
                   }
@@ -487,26 +487,21 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveSection("profile")}
                 >
                   <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                     <User className="w-6 h-6 text-teal-600" />
                   </div>
-                  <h3 className="font-semibold mb-2">
-                    Digital Tourist ID
-                  </h3>
+                  <h3 className="font-semibold mb-2">Digital Tourist ID</h3>
                   <p className="text-gray-600 text-sm">
-                    Your verified blockchain-secured identity for
-                    contactless travel experiences.
+                    Your verified blockchain-secured identity for contactless travel experiences.
                   </p>
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
-                  onClick={() =>
-                    setActiveSection("notifications")
-                  }
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
+                  onClick={() => setActiveSection("notifications")}
                 >
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                     <Bell className="w-6 h-6 text-purple-600" />
@@ -515,15 +510,14 @@ export default function App() {
                     Notifications
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    Manage alerts, emergency broadcasting, and
-                    multilingual support.
+                    Manage alerts, emergency broadcasting, and multilingual support.
                   </p>
                 </div>
               </div>
             ) : (
               <div className="grid md:grid-cols-3 gap-6">
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveSection("business")}
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
@@ -534,7 +528,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveSection("digipin")}
                 >
                   <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
@@ -545,7 +539,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer hover:shadow-lg transition-shadow"
+                  className="bg-card text-card-foreground p-6 rounded-lg border border-border cursor-pointer hover:shadow-lg transition-shadow"
                   onClick={() => setActiveSection("weather")}
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
@@ -687,7 +681,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div className="min-h-screen bg-background text-foreground flex">
       <Sidebar
         activeSection={activeSection}
         onSectionChange={setActiveSection}

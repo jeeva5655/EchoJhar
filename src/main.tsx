@@ -3,6 +3,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { ThemeProvider } from "./components/theme/ThemeProvider";
 
 // Simple test to see if React is working
 function TestComponent() {
@@ -12,10 +13,11 @@ function TestComponent() {
     <div style={{ 
       padding: '20px', 
       fontFamily: 'Arial, sans-serif',
-      backgroundColor: '#f0f0f0',
+      background: 'var(--background)',
+      color: 'var(--foreground)',
       minHeight: '100vh'
     }}>
-      <h1 style={{ color: '#333' }}>🎉 React App is Working!</h1>
+      <h1>🎉 React App is Working!</h1>
       <p>If you can see this, React is loading correctly.</p>
       <button 
         onClick={() => setCount(count + 1)}
@@ -40,8 +42,8 @@ function TestComponent() {
           style={{
             padding: '10px 20px',
             fontSize: '16px',
-            backgroundColor: '#28a745',
-            color: 'white',
+            backgroundColor: 'var(--primary)',
+            color: 'var(--primary-foreground)',
             border: 'none',
             borderRadius: '5px',
             cursor: 'pointer'
@@ -57,7 +59,9 @@ function TestComponent() {
 function loadMainApp() {
   createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </React.StrictMode>
   );
 }
@@ -69,13 +73,17 @@ const showTest = urlParams.get('test') === 'true';
 if (showTest) {
   createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-      <TestComponent />
+      <ThemeProvider>
+        <TestComponent />
+      </ThemeProvider>
     </React.StrictMode>
   );
 } else {
   createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </React.StrictMode>
   );
 }

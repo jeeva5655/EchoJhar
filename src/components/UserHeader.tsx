@@ -3,6 +3,7 @@ import { Badge } from "./ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { LogOut, Shield, User, Clock } from "lucide-react";
 import echoJharLogo from "../assets/0ac3abd4e99f5c9deeebeb2d55a584babb02036d.png";
+import { ThemeToggle } from "./theme/ThemeToggle";
 
 interface UserHeaderProps {
   userType: 'tourist' | 'admin' | 'business';
@@ -14,7 +15,7 @@ export function UserHeader({ userType, userData, onLogout }: UserHeaderProps) {
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   
   return (
-    <div className="bg-white border-b border-gray-200 px-8 py-4">
+    <div className="bg-card text-card-foreground border-b border-border px-8 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-3">
@@ -51,6 +52,7 @@ export function UserHeader({ userType, userData, onLogout }: UserHeaderProps) {
         </div>
 
         <div className="flex items-center space-x-4">
+          <ThemeToggle />
           <Badge variant={userType === 'admin' ? 'destructive' : 'default'}>
             {userType === 'admin' ? '🛡️ Administrator' : userType === 'business' ? '🏪 Business' : '🌟 Tourist'}
           </Badge>
