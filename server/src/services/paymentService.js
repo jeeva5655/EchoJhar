@@ -2,36 +2,62 @@ const Razorpay = require('razorpay');
 const crypto = require('crypto');
 
 /**
- * Payment Service - Core Revenue Engine
+ * Payment Service - Razorpay Integration
  * 
- * Business Features:
- * - Multiple payment methods
- * - Webhook verification
- * - Refund handling
- * - Revenue tracking
+ * Business Logic:
+ * - Create payment orders
+ * - Verify payments
+ * - Process refunds
+ * - Handle webhooks
+ * - Calculate platform revenue
  */
 class PaymentService {
     constructor() {
-        // Initialize Razorpay (Primary for India)
-        this.razorpay = new Razorpay({
-            key_id: process.env.RAZORPAY_KEY_ID,
-            key_secret: process.env.RAZORPAY_KEY_SECRET
-        });
+        // BUSINESS LOGIC: Make Razorpay optional for demo/testing
+        const hasRazorpayKeys = process.env.RAZORPAY_KEY_ID &&
+            process.env.RAZORPAY_KEY_SECRET &&
+            process.env.RAZORPAY_KEY_ID !== 'your_razorpay_key_id';
+
+        if (hasRazorpayKeys) {
+            this.razorpay = new Razorpay({
+                key_id: process.env.RAZORPAY_KEY_ID,
+                key_secret: process.env.RAZORPAY_KEY_SECRET
+            });
+            console.log('✅ Razorpay Payment Gateway Initialized');
+        } else {
+            this.razorpay = null;
+            console.log('⚠️  Razorpay not configured - using demo mode');
+            console.log('💡 Add RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to enable payments');
+        }
     }
 
     /**
      * BUSINESS LOGIC: Create payment order
-     * @param {Object} params - {amount, currency, receipt, notes}
-     * @returns {Object} Payment order
+     * Create payment order
+     * @param {Object} orderData - Order details {amount, currency, receipt, notes}
+     * @returns {Promise<Object>} Payment order
      */
-    async createOrder({ amount, currency = 'INR', receipt, notes = {} }) {
+    async createOrder(orderData) {
         try {
+            // Demo mode fallback
+            if (!this.razorpay) {
+                console.log(`💡 Demo mode: Creating mock order for amount ${orderData.amount}`);
+                return {
+                    orderId: `demo_order_${Date.now()}`,
+                    amount: orderData.amount,
+                    currency: orderData.currency || 'INR',
+                    receipt: orderData.receipt || `receipt_${Date.now()}`,
+                    status: 'created',
+                    demoMode: true
+                };
+            }
+
             const options = {
-                amount: Math.round(amount * 100), // Convert to paise
-                currency,
-                receipt,
+                amount: Math.round(orderData.amount * 100), // Convert to paise
+                currency: orderData.currency || 'INR',
+                receipt: orderData.receipt || `receipt_${Date.now()}`,
                 notes: {
-                    ...notes,
+                    ...(orderData.notes || {}),
                     platform: 'EchoJhar',
                     createdAt: new Date().toISOString()
                 }
@@ -39,19 +65,21 @@ class PaymentService {
 
             const order = await this.razorpay.orders.create(options);
 
-            // LOG: Revenue opportunity created
-            console.log(`💰 Payment order created: ₹${amount} | Order ID: ${order.id}`);
+            // BUSINESS LOGIC: Calculate platform revenue
+            const platformFee = this.calculatePlatformFee(orderData.amount);
+
+            console.log(`💰 Payment order created: ${order.id} | Amount: ₹${orderData.amount} | Fee: ₹${platformFee}`);
 
             return {
-                success: true,
                 orderId: order.id,
                 amount: order.amount / 100,
                 currency: order.currency,
-                receipt: order.receipt
+                receipt: order.receipt,
+                status: order.status
             };
         } catch (error) {
-            console.error('Payment order creation failed:', error.message);
-            throw new Error(`Payment order creation failed: ${error.message}`);
+            console.error('Payment order creation error:', error.message);
+            throw new Error('Failed to create payment order');
         }
     }
 
