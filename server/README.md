@@ -1,8 +1,8 @@
 # EchoJhar Tourism Backend - README
 
-## 🌍 Tourism Platform with Revenue-First Architecture
+## 🌍 Tamil Nadu Tourism Platform with Revenue-First Architecture
 
-A **production-ready** Node.js backend built for the EchoJhar tourism startup, focused on **monetization** and **scalability**.
+A **production-ready** Node.js backend built for the EchoJhar Tamil Nadu tourism startup, focused on **monetization** and **scalability**.
 
 ---
 
@@ -306,4 +306,4 @@ REFERRAL_BONUS_POINTS=100
 
 **Built with ❤️ for EchoJhar Tourism Startup**
 
-🚀 Ready to scale tourism in Jharkhand!
+🚀 Ready to scale tourism in Tamil Nadu!

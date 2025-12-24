@@ -35,7 +35,7 @@ class AIService {
                 return this.fallbackItinerary(destination, duration);
             }
 
-            const prompt = `Create a detailed ${duration}-day itinerary for ${destination}, Jharkhand, India.
+            const prompt = `Create a detailed ${duration}-day itinerary for ${destination}, Tamil Nadu, India.
 
 Budget: ₹${budget}
 Travel Style: ${travelStyle}
@@ -45,7 +45,7 @@ Provide:
 1. Day-wise schedule with timings
 2. Recommended attractions, restaurants, and activities
 3. Estimated costs for each activity
-4. Local tips and cultural insights
+4. Local tips and cultural insights (Tamil Nadu specific)
 5. Best photo spots
 6. Transportation recommendations
 
@@ -99,11 +99,11 @@ Format as JSON with structure:
                 return this.fallbackChat(message);
             }
 
-            const systemPrompt = `You are EchoJhar AI, a helpful tourism assistant for Jharkhand, India. 
+            const systemPrompt = `You are EchoJhar AI, a helpful tourism assistant for Tamil Nadu, India. 
 You help tourists with:
-- Destination recommendations
+- Destination recommendations (temples, beaches, hill stations, heritage sites)
 - Travel planning
-- Cultural information
+- Cultural information (Tamil culture, traditions, festivals)
 - Safety tips
 - Local cuisine and shopping
 - Emergency assistance
@@ -150,7 +150,7 @@ Material: ${product.material || 'traditional materials'}
 Price: ₹${product.price}
 
 Create a 2-3 paragraph description that:
-1. Highlights the craftsmanship and cultural significance
+1. Highlights the craftsmanship and Tamil Nadu cultural significance
 2. Mentions authenticity and blockchain verification
 3. Appeals to tourists and heritage enthusiasts
 4. Is SEO-friendly and engaging
@@ -180,7 +180,7 @@ Keep it under 150 words.`;
                 return this.fallbackRecommendations(interests);
             }
 
-            const prompt = `Recommend 5 tourism experiences in Jharkhand for a user with:
+            const prompt = `Recommend 5 tourism experiences in Tamil Nadu for a user with:
 
 Interests: ${interests.join(', ')}
 Budget: ₹${budget}
@@ -190,9 +190,9 @@ ${previousBookings ? `Previous visits: ${previousBookings.join(', ')}` : ''}
 Provide personalized recommendations considering:
 1. User's interests and preferences
 2. Budget constraints
-3. Seasonal factors
+3. Seasonal factors (Tamil Nadu climate)
 4. Proximity to current location
-5. Unique, less touristy options
+5. Unique, less touristy options (explore beyond Chennai/Ooty)
 
 Format as JSON array:
 [
@@ -246,25 +246,25 @@ Format as JSON array:
 
     fallbackChat(message) {
         return {
-            response: "I'm currently in demo mode. For full AI assistance, please configure the Gemini API key. How can I help you with your Jharkhand trip?",
+            response: "I'm currently in demo mode. For full AI assistance, please configure the Gemini API key. How can I help you with your Tamil Nadu trip?",
             suggestions: this.generateSuggestions(message)
         };
     }
 
     fallbackDescription(product) {
-        return `Authentic ${product.name} handcrafted by skilled artisans in ${product.village}. This beautiful piece represents the rich cultural heritage of Jharkhand. Verified for authenticity on blockchain. Perfect for collectors and gift enthusiasts.`;
+        return `Authentic ${product.name} handcrafted by skilled artisans in ${product.village}. This beautiful piece represents the rich cultural heritage of Tamil Nadu. Verified for authenticity on blockchain. Perfect for collectors and gift enthusiasts.`;
     }
 
     fallbackRecommendations(interests) {
         return [
             {
-                name: "Hundru Falls",
+                name: "Meenakshi Temple",
                 type: "attraction",
-                description: "Stunning 98m waterfall",
+                description: "Ancient temple architecture marvel in Madurai",
                 estimatedCost: 500,
                 duration: "3-4 hours",
-                bestTime: "July-October",
-                why: "Great for nature lovers"
+                bestTime: "October-March",
+                why: "Perfect for culture and heritage lovers"
             }
         ];
     }
